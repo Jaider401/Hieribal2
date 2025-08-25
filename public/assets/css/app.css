@@ -1,0 +1,179 @@
+/* ====== LOGIN PAGE (pantalla partida con video) ====== */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* 🚫 sin scroll global (vertical y horizontal) */
+}
+
+.site-main--full {
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* 🚫 asegura que el main tampoco genere scroll */
+}
+
+.is-full .login {
+  overflow: hidden; /* 🚫 sin scroll en el wrapper general */
+}
+
+.login-page body, .login-page html { height: 100%; }
+.login {
+  display: flex;
+  min-height: 100dvh;
+  background-color: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.login .left-panel{
+  flex: 1;
+  background-color: #fff;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 700px;
+}
+.login .logo{ width: 250px; margin-bottom: -60px; margin-left: -30px; }
+
+.login h2{ font-size: 26px; margin-bottom: 10px; color: #111; }
+.login p{ color:#666; font-size:14px; margin-bottom:20px; }
+
+.login .google-btn{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; padding:12px 2px; border:1px solid #ddd; background:#fff;
+  color:#444; font-weight:500; font-size:14px; border-radius:6px; cursor:pointer;
+  transition: all .3s ease; box-shadow:0 2px 4px rgba(0,0,0,.05); text-decoration:none;
+}
+.login .google-btn:hover{ background:#f1f1f1; border-color:#bbb; }
+.login .google-btn img{ width:18px; height:18px; object-fit:contain; display:inline-block; }
+
+.login .separator{ text-align:center; margin:20px 0; position:relative; }
+.login .separator span{ background:#fff; padding:0 10px; color:#999; }
+.login .separator::before{
+  content:''; position:absolute; left:0; right:0; top:50%; border-top:1px solid #ccc; z-index:-1;
+}
+
+.login input[type="email"],
+.login input[type="password"]{
+  width:100%; padding:14px; border:1px solid #ddd; border-radius:6px; margin-bottom:15px; font-size:14px;
+}
+.login .extras{ display:flex; justify-content:space-between; font-size:13px; margin-bottom:20px; }
+
+.login .submit-btn{
+  width:100%; padding:14px; background: linear-gradient(135deg, #6FBC43, #4A9C2E);
+  color:#fff; font-weight:600; border:none; border-radius:6px; cursor:pointer; font-size:14px;
+}
+
+.login .bottom-link{ margin-top:30px; font-size:13px; }
+.login .bottom-link a{ color:#3b82f6; text-decoration:none; }
+
+.login .right-panel{
+  flex:1; position:relative; overflow:hidden;
+}
+.login .right-panel video{
+  width:100%; height:100%; object-fit:cover; display:block; filter:brightness(.6);
+}
+
+.login .form-content{
+  flex:1; display:flex; flex-direction:column; justify-content:flex-start;
+}
+
+/* Mensajes */
+.login .error-msg{
+  background:#fff1f2; color:#9f1239; border:1px solid #fecdd3; border-radius:8px;
+  padding:10px 12px; margin-bottom:12px; font-size:14px;
+}
+.login .success-msg{
+  background:#ecfeff; color:#155e75; border:1px solid #a5f3fc; border-radius:8px;
+  padding:10px 12px; margin-bottom:12px; font-size:14px;
+}
+
+/* ===== Responsividad ===== */
+
+/* <=1400px: ajustes suaves */
+@media (max-width: 1400px){
+  .login .left-panel{ padding:56px; max-width:640px; margin-top: -100px; }
+}
+
+/* <=1200px */
+@media (max-width: 1200px){
+  .login .left-panel{ padding:18px; max-width:580px; margin-top: -100px; }
+  .login h2{ font-size:24px; }
+}
+
+/* <=1024px */
+@media (max-width: 1024px){
+  .login .left-panel{ padding:40px; max-width:540px; }
+  .login .logo{ width:220px; margin-left:-20px; }
+  .login input[type="email"], .login input[type="password"]{ padding:12px; font-size:13px; }
+  .login .submit-btn{ padding:12px; }
+}
+
+/* <=960px: apilar y permitir scroll vertical (importante) */
+@media (max-width: 960px){
+  html, body{ overflow:auto; }                 /* vuelve el scroll vertical en móvil */
+  .site-main--full{ height:auto; overflow:visible; }
+  .is-full .login{ height:auto; overflow:visible; flex-direction:column; }
+  .login .left-panel{ max-width:none; padding:28px 22px; }
+  .login .right-panel{ height:36vh; position:relative; }
+  .login .right-panel video{ position:absolute; inset:0; }
+}
+
+/* <=560px: compactar */
+@media (max-width: 560px){
+  .login .left-panel{ padding:22px 16px; margin-top: 100px; }
+  .login .logo{ width:180px; margin-left:0; margin-bottom:-30px; }
+  .login .google-btn{ padding:10px 14px; font-size:13px; }
+  .login input[type="email"], .login input[type="password"]{ padding:11px; font-size:13px; }
+  .login .submit-btn{ padding:12px; font-size:14px; }
+}
+
+/* <=380px: ultra-compacto */
+@media (max-width: 380px){
+  .login h2{ font-size:20px; }
+  .login p{ font-size:13px; }
+  .login .extras{ flex-direction:column; gap:8px; }
+}
+
+/* En móviles ocultar el video */
+@media (max-width: 768px){   /* puedes ajustar el ancho si quieres */
+  .login .right-panel{
+    display: none !important;
+  }
+}
+
+/* ---- Inputs: aplica mismo estilo a todos los tipos comunes ---- */
+.login input[type="text"],
+.login input[type="email"],
+.login input[type="password"],
+.login input[type="number"],
+.login input[type="tel"]{
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* Filas del formulario */
+.login .form-row{
+  display: grid;
+  gap: 10px;
+  margin-bottom: 15px;  /* separa filas entre sí */
+}
+.login .form-row.form-3{ grid-template-columns: repeat(3, 1fr); }
+.login .form-row.form-2{ grid-template-columns: repeat(2, 1fr); }
+
+/* En móvil, apilar columnas automáticamente */
+@media (max-width: 960px){
+  .login .form-row.form-3,
+  .login .form-row.form-2{
+    grid-template-columns: 1fr;
+  }
+  /* Ajuste menor de paddings si lo ves necesario */
+  /* .login .left-panel{ padding: 28px 22px; } */
+}
