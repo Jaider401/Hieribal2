@@ -5,15 +5,23 @@
     "psr-4": {
       "Controllers\\": "controllers/",
       "Models\\": "models/",
-      "Core\\": "core/"
+      "Core\\": "core/",
+      "Services\\": "services/"
     }
   },
   "require": {
+    "php": "^8.0",
     "phpseclib/phpseclib": "3.0.36",
     "google/apiclient": "2.17",
     "guzzlehttp/guzzle": "7.8",
     "guzzlehttp/psr7": "2.6",
+    "guzzlehttp/promises": "^1.5",
     "psr/http-message": "1.1",
     "phpmailer/phpmailer": "^6.10"
+  },
+  "config": {
+    "platform": {
+      "php": "8.0.30"
+    }
   }
 }

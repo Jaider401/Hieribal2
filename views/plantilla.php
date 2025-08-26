@@ -1,7 +1,14 @@
 <?php
 /** Layout principal */
-$full = $full ?? false;                    // Vista en modo full-bleed (login/registro)
+$full = $full ?? false;                    // Vistas full-bleed (login/registro)
 $base = $this->config['app']['base_url'];  // Atajo para rutas
+$isAdmin = !empty($esAdmin);               // Flag para panel admin
+
+// Clases para <body>
+$bodyClasses = [];
+$bodyClasses[] = $full ? 'admin-login' : 'app';
+if ($isAdmin) $bodyClasses[] = 'admin-layout';
+$bodyClassAttr = implode(' ', $bodyClasses);
 ?>
 <!doctype html>
 <html lang="es">
@@ -10,10 +17,15 @@ $base = $this->config['app']['base_url'];  // Atajo para rutas
   <title><?= htmlspecialchars($titulo ?? 'App') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- CSS global -->
+  <!-- CSS global del sitio público -->
   <link rel="stylesheet" href="<?= $base ?>/assets/css/app.css">
 
-  <!-- CSS extra por página (p.ej. home.css) -->
+  <?php if ($isAdmin): ?>
+    <!-- CSS del panel admin -->
+    <link rel="stylesheet" href="<?= $base ?>/assets/css/dashboard.css">
+  <?php endif; ?>
+
+  <!-- CSS extra por página -->
   <?php if (!empty($extra_css) && is_array($extra_css)): ?>
     <?php foreach ($extra_css as $href): ?>
       <link rel="stylesheet" href="<?= htmlspecialchars($href) ?>">
@@ -21,10 +33,10 @@ $base = $this->config['app']['base_url'];  // Atajo para rutas
   <?php endif; ?>
 </head>
 
-<body class="app <?= $full ? 'is-full' : '' ?>">
+<body class="<?= htmlspecialchars($bodyClassAttr) ?>">
 
-  <?php if (!$full): ?>
-    <!-- Header con logo y navegación -->
+  <?php if (!$full && !$isAdmin): ?>
+    <!-- ===== Header / navegación pública (NO en admin ni en full) ===== -->
     <header class="site-header header">
       <div class="container header-wrap" style="display:flex;align-items:center;justify-content:space-between;">
         <a class="logo" href="<?= $base ?>/?r=home" aria-label="Ir al inicio">
@@ -33,7 +45,6 @@ $base = $this->config['app']['base_url'];  // Atajo para rutas
 
         <nav aria-label="Navegación principal">
           <ul style="list-style:none;display:flex;gap:25px;margin:0;padding:0;">
-            <!-- En la home, #top y #quienes-somos hacen scroll; en otras páginas simplemente llevan a home -->
             <li><a href="<?= $base ?>/?r=home#top">Inicio</a></li>
             <li><a href="<?= $base ?>/?r=home#quienes-somos">Quiénes Somos</a></li>
 
@@ -51,9 +62,10 @@ $base = $this->config['app']['base_url'];  // Atajo para rutas
     </header>
   <?php endif; ?>
 
+  <!-- ===== Contenido ===== -->
   <main class="site-main <?= $full ? 'site-main--full' : '' ?>">
-    <?php if ($full): ?>
-      <!-- SIN container en modo full-bleed -->
+    <?php if ($full || $isAdmin): ?>
+      <!-- Sin .container en login ni en admin (las vistas ya traen su layout) -->
       <?= $contenido ?? '' ?>
     <?php else: ?>
       <div class="container">
@@ -62,7 +74,8 @@ $base = $this->config['app']['base_url'];  // Atajo para rutas
     <?php endif; ?>
   </main>
 
-  <?php if (!$full): ?>
+  <?php if (!$full && !$isAdmin): ?>
+    <!-- ===== Footer público (no en admin ni full) ===== -->
     <footer class="site-footer">
       <div class="container">
         <p style="margin:0;">© <?= date('Y') ?> MI HIERBAL • Bienestar natural</p>
@@ -73,7 +86,7 @@ $base = $this->config['app']['base_url'];  // Atajo para rutas
   <!-- JS global -->
   <script src="<?= $base ?>/assets/js/app.js"></script>
 
-  <!-- JS extra por página (opcional) -->
+  <!-- JS extra por página -->
   <?php if (!empty($extra_js) && is_array($extra_js)): ?>
     <?php foreach ($extra_js as $src): ?>
       <script src="<?= htmlspecialchars($src) ?>"></script>

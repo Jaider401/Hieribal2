@@ -6,7 +6,8 @@
     <h1>¡Hola <span>somos Hieribal</span>!</h1>
     <p>Cuidarte naturalmente es la mejor forma de quererte. Hierbal lo hace posible.</p>
     <a href="<?= $base ?>/?r=login" class="btn-ver-todo">Iniciar sesión (Cliente)</a>
-    <a href="<?= $base ?>/?r=login" class="btn-ver-todo">Modo Administrador</a>
+    <a href="<?= $base ?>/?r=admin_login" class="btn-ver-todo">Modo Administrador</a>
+
   </div>
 
   <div class="imagenes-bienvenida">
