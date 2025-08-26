@@ -59,18 +59,19 @@ final class Cliente {
     }
 
     // ---------------- NUEVOS PARA GOOGLE ---------------- //
-    public function crearDesdeGoogle(string $nombre, string $correo): int {
-        $st = $this->pdo->prepare(
-          'INSERT INTO clientes (cedula, nombres, apellidos, telefono, correo, `contraseña`, fecha_registro, verificado)
-           VALUES ("", :nombres, "", "", :correo, :pass, NOW(), 1)'
-        );
-        $st->execute([
-          ':nombres' => $nombre,
-          ':correo'  => $correo,
-          ':pass'    => password_hash(bin2hex(random_bytes(8)), PASSWORD_DEFAULT)
-        ]);
-        return (int)$this->pdo->lastInsertId();
-    }
+ public function crearDesdeGoogle(string $nombre, string $correo): int {
+    $st = $this->pdo->prepare(
+      'INSERT INTO clientes (cedula, nombres, apellidos, telefono, correo, `contraseña`, fecha_registro, verificado)
+       VALUES (NULL, :nombres, "", "", :correo, :pass, NOW(), 1)'
+    );
+    $st->execute([
+      ':nombres' => $nombre,
+      ':correo'  => $correo,
+      ':pass'    => password_hash(bin2hex(random_bytes(8)), PASSWORD_DEFAULT)
+    ]);
+    return (int)$this->pdo->lastInsertId();
+}
+
 
     // ---------------- NUEVOS PARA VERIFICACIÓN POR EMAIL ---------------- //
     public function crearConVerificacion(array $d, string $token): int {

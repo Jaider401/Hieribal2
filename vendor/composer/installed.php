@@ -3,7 +3,7 @@
         'name' => 'hieribal/app',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'fb4d96deca48eb6a5821882ff770b542fbf38751',
+        'reference' => '2212f9aad1671b2a0eabfea20ab375bd405b4308',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -76,7 +76,7 @@
         'hieribal/app' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'fb4d96deca48eb6a5821882ff770b542fbf38751',
+            'reference' => '2212f9aad1671b2a0eabfea20ab375bd405b4308',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
