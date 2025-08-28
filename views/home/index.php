@@ -69,3 +69,4 @@
     <button type="submit">Suscribirse</button>
   </div>
 </section>
+<script src="../../public/js/homepage.js"></script>
