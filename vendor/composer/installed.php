@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'hieribal/app',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => '2212f9aad1671b2a0eabfea20ab375bd405b4308',
+        'pretty_version' => 'dev-Jaider',
+        'version' => 'dev-Jaider',
+        'reference' => '7514b2819c5bd205e8050f84e98f2bf691409e80',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'google/apiclient-services' => array(
-            'pretty_version' => 'v0.409.0',
-            'version' => '0.409.0.0',
-            'reference' => '8366037e450b62ffc1c5489459f207640acca2b4',
+            'pretty_version' => 'v0.410.0',
+            'version' => '0.410.0.0',
+            'reference' => 'ef335e912305403aef8a6552cc2101c537b9ebdd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../google/apiclient-services',
             'aliases' => array(),
@@ -74,9 +74,9 @@
             'dev_requirement' => false,
         ),
         'hieribal/app' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '2212f9aad1671b2a0eabfea20ab375bd405b4308',
+            'pretty_version' => 'dev-Jaider',
+            'version' => 'dev-Jaider',
+            'reference' => '7514b2819c5bd205e8050f84e98f2bf691409e80',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

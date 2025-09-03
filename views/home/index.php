@@ -33,8 +33,13 @@
     </div>
   </section>
   <section class="image-section">
-    <img src="<?= $base ?>/assets/img/nature.jpg" alt="Nature background" />
-  </section>
+  <video autoplay loop playsinline controls class="video-pequeno">
+    <source src="<?= $base ?>/assets/video/Hieribal.mp4" type="video/mp4">
+    Tu navegador no soporta videos en HTML5.
+  </video>
+</section>
+
+
 </main>
 
 <!-- NOSOTROS -->
