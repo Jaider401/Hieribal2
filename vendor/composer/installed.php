@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'hieribal/app',
-        'pretty_version' => 'dev-Jaider',
-        'version' => 'dev-Jaider',
-        'reference' => '7514b2819c5bd205e8050f84e98f2bf691409e80',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '4d42673a915ae82e8a4a44518bd934683d1d7360',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -74,9 +74,9 @@
             'dev_requirement' => false,
         ),
         'hieribal/app' => array(
-            'pretty_version' => 'dev-Jaider',
-            'version' => 'dev-Jaider',
-            'reference' => '7514b2819c5bd205e8050f84e98f2bf691409e80',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '4d42673a915ae82e8a4a44518bd934683d1d7360',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
